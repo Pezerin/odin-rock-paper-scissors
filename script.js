@@ -26,34 +26,34 @@ function playGame() {
                 console.log("Tie! Rock and rock!");
             }
             else if (computerChoice === "paper") {
-                computerChoice++;
+                computerScore++;
                 console.log("You lose! Rock loses to paper!");
             }
             else {
-                humanChoice++;
+                humanScore++;
                 console.log("You win! Rock beats scissors!");
             }
         }
         else if (humanChoice === "paper") {
             if (computerChoice === "rock") {
-                humanChoice++;
+                humanScore++;
                 console.log("You win! Paper beats rock!");
             }
             else if (computerChoice === "paper") {
                 console.log("Tie! Paper and paper!");
             }
             else {
-                computerChoice++;
+                computerScore++;
                 console.log("You lose! Paper loses to scissors!");
             }
         }
         else {
             if (computerChoice === "rock") {
-                computerChoice++;
+                computerScore++;
                 console.log("You lose! Scissors loses to rock!");
             }
             else if (computerChoice === "paper") {
-                humanChoice++;
+                humanScore++;
                 console.log("You win! Scissors beats paper!");
             }
             else {
@@ -70,12 +70,14 @@ function playGame() {
     }
 
     if (humanScore > computerScore) {
-        console.log("You win the game with a score of " + humanScore + " to " + computerChoice);
+        console.log("You win the game with a score of " + humanScore + " to " + computerScore);
     }
     else if (computerScore > humanScore) {
-        console.log("You lose the game with a score of " + humanScore + " to " + computerChoice);
+        console.log("You lose the game with a score of " + humanScore + " to " + computerScore);
     }
     else {
-        console.log("It's a tie with a score of " + humanScore + " to " + computerChoice);
+        console.log("It's a tie with a score of " + humanScore + " to " + computerScore);
     }
 }
+
+playGame();
