@@ -4,61 +4,88 @@ const rockButton = document.querySelector(".rock");
 const paperButton = document.querySelector(".paper");
 const scissorsButton = document.querySelector(".scissors");
 const win = document.querySelector(".win");
+const computer = document.querySelector(".computerchoice");
+const humanDisplay = document.querySelector(".humanscore");
+const computerDisplay = document.querySelector(".computerscore");
 
 rockButton.addEventListener("click", () => {
     let computerChoice = getComputerChoice();
+    win.textContent = "";
     playRound("rock", computerChoice);
 });
 
 paperButton.addEventListener("click", () => {
     let computerChoice = getComputerChoice();
+    win.textContent = "";
     playRound("paper", computerChoice);
 });
 
 scissorsButton.addEventListener("click", () => {
     let computerChoice = getComputerChoice();
+    win.textContent = "";
     playRound("scissors", computerChoice);
 });
 
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === "rock") {
         if (computerChoice === "rock") {
-            console.log("Tie! Rock and rock!");
+            computer.textContent = "Computer: Rock";
+            humanDisplay.textContent = "Your Score: " + humanScore;
+            computerDisplay.textContent = "Computer Score: " + computerScore;
         }
         else if (computerChoice === "paper") {
             computerScore++;
-            console.log("You lose! Rock loses to paper!");
+            computer.textContent = "Computer: Paper";
+            humanDisplay.textContent = "Your Score: " + humanScore;
+            computerDisplay.textContent = "Computer Score: " + computerScore;
         }
         else {
             humanScore++;
-            console.log("You win! Rock beats scissors!");
+            computer.textContent = "Computer: Scissors";
+            humanDisplay.textContent = "Your Score: " + humanScore;
+            computerDisplay.textContent = "Computer Score: " + computerScore;
         }
     }
     else if (humanChoice === "paper") {
         if (computerChoice === "rock") {
             humanScore++;
-            console.log("You win! Paper beats rock!");
+            computer.textContent = "Computer: Rock";
+            humanDisplay.textContent = "Your Score: " + humanScore;
+            computerDisplay.textContent = "Computer Score: " + computerScore;
         }
         else if (computerChoice === "paper") {
-            console.log("Tie! Paper and paper!");
+            computer.textContent = "Computer: Paper";
+            humanDisplay.textContent = "Your Score: " + humanScore;
+            computerDisplay.textContent = "Computer Score: " + computerScore;
         }
         else {
             computerScore++;
-            console.log("You lose! Paper loses to scissors!");
+            computer.textContent = "Computer: Scissors";
+            humanDisplay.textContent = "Your Score: " + humanScore;
+            computerDisplay.textContent = "Computer Score: " + computerScore;
         }
     }
     else {
         if (computerChoice === "rock") {
             computerScore++;
-            console.log("You lose! Scissors loses to rock!");
+            computer.textContent = "Computer: Rock";
+            humanDisplay.textContent = "Your Score: " + humanScore;
+            computerDisplay.textContent = "Computer Score: " + computerScore;
         }
         else if (computerChoice === "paper") {
             humanScore++;
-            console.log("You win! Scissors beats paper!");
+            computer.textContent = "Computer: Paper";
+            humanDisplay.textContent = "Your Score: " + humanScore;
+            computerDisplay.textContent = "Computer Score: " + computerScore;
         }
         else {
-            console.log("Tie! Scissors and scissors!");
+            computer.textContent = "Computer: Scissors";
+            humanDisplay.textContent = "Your Score: " + humanScore;
+            computerDisplay.textContent = "Computer Score: " + computerScore;
         }
+    }
+    if (humanScore === 5 || computerScore === 5) {
+        displayWin();
     }
 }
 
@@ -69,6 +96,8 @@ function displayWin() {
     else {
         win.textContent = "You lose the game with a score of " + humanScore + " to " + computerScore;
     }
+    humanScore = 0;
+    computerScore = 0;
 }
 
 
