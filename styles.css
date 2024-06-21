@@ -24,3 +24,9 @@ body {
     height: 50px;
     width: 100px;
 }
+
+.scores, .computerchoice, .win {
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    color: white;
+}

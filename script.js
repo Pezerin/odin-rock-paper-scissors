@@ -4,12 +4,20 @@ const rockButton = document.querySelector(".rock");
 const paperButton = document.querySelector(".paper");
 const scissorsButton = document.querySelector(".scissors");
 
-function getComputerChoice() {
-    const choices = ["rock", "paper", "scissors"];
-    let random = Math.floor(Math.random() * 3);
+rockButton.addEventListener("click", () => {
+    let computerChoice = getComputerChoice();
+    playRound("rock", computerChoice);
+});
 
-    return choices[random];
-}
+paperButton.addEventListener("click", () => {
+    let computerChoice = getComputerChoice();
+    playRound("paper", computerChoice);
+});
+
+scissorsButton.addEventListener("click", () => {
+    let computerChoice = getComputerChoice();
+    playRound("scissors", computerChoice);
+});
 
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === "rock") {
@@ -61,4 +69,11 @@ else if (computerScore > humanScore) {
 }
 else {
     console.log("It's a tie with a score of " + humanScore + " to " + computerScore);
+}
+
+function getComputerChoice() {
+    const choices = ["rock", "paper", "scissors"];
+    let random = Math.floor(Math.random() * 3);
+
+    return choices[random];
 }
