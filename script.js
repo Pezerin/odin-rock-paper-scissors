@@ -5,12 +5,6 @@ function getComputerChoice() {
     return choices[random];
 }
 
-function getHumanChoice() {
-    let choice = prompt("Rock, paper, or scissors? ");
-
-    return choice;
-}
-
 function playGame() {
     let humanScore = 0;
     let computerScore = 0;
