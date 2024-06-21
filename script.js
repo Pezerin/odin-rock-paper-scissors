@@ -3,6 +3,7 @@ let computerScore = 0;
 const rockButton = document.querySelector(".rock");
 const paperButton = document.querySelector(".paper");
 const scissorsButton = document.querySelector(".scissors");
+const win = document.querySelector(".win");
 
 rockButton.addEventListener("click", () => {
     let computerChoice = getComputerChoice();
@@ -61,15 +62,15 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-if (humanScore > computerScore) {
-    console.log("You win the game with a score of " + humanScore + " to " + computerScore);
+function displayWin() {
+    if (humanScore > computerScore) {
+        win.textContent = "You win the game with a score of " + humanScore + " to " + computerScore;
+    }
+    else {
+        win.textContent = "You lose the game with a score of " + humanScore + " to " + computerScore;
+    }
 }
-else if (computerScore > humanScore) {
-    console.log("You lose the game with a score of " + humanScore + " to " + computerScore);
-}
-else {
-    console.log("It's a tie with a score of " + humanScore + " to " + computerScore);
-}
+
 
 function getComputerChoice() {
     const choices = ["rock", "paper", "scissors"];
